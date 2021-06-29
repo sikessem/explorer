@@ -1,0 +1,38 @@
+{
+    "name": "sikessem/protocom",
+    "type": "library",
+    "description": "Remote file and data manager",
+    "license": "Apache-2.0",
+    "keywords": [
+        "protocom",
+        "sikessem"
+    ],
+    "readme": "README.md",
+    "authors": [{
+        "homepage": "https://sikessem.omninf.com",
+        "name": "SIGUI kessé Emmanuel",
+        "email": "sikessem@omninf.com",
+        "role": "Developer"
+    }],
+    "support": {
+        "source": "https://github.com/SIKessEm/Protocom",
+        "issues": "https://github.com/SIKessEm/Protocom/issues"
+    },
+    "require": {
+        "php": ">=8.0",
+        "sikessem/organizer": "dev-main",
+        "sikessem/events": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+            "SIKessEm\\Protocom\\": "lib/"
+        }
+    },
+    "config": {
+        "vendor-dir": "pkg",
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
