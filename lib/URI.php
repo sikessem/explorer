@@ -13,7 +13,7 @@ class URI {
     $this->port = $info['port'] ?? '';
     $this->user = $info['user'] ?? '';
     $this->pass = $info['password'] ?? '';
-    $this->path = $info['path'] ?? '';
+    $this->path = preg_replace('/\/+/', '/', $info['path'] ?? '');
     $this->query = new Query($info['query'] ?? '');
     $this->fragment = $info['fragment'] ?? '';
   }
