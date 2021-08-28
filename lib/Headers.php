@@ -4,7 +4,7 @@ class Headers {
 
   use Getter;
 
-  public function __construct(array $list) {
+  public function __construct(array $list = []) {
     $this->setList($list);
   }
 
