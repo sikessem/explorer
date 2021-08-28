@@ -27,6 +27,7 @@ class Headers {
   }
 
   public function set(string $name, string $value): self {
+    $name = self::format($name);
     $this->list[$name] = $value;
     return $this;
   }
@@ -47,5 +48,9 @@ class Headers {
   public function unset(string $name): this {
     unset($this->list[$name]);
     return $this;
+  }
+
+  static function format(string $key): string {
+    return implode('-', array_map(fn($key) => ucfirst(strtolower($key)), explode('_', $key)));
   }
 }
