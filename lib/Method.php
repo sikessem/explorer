@@ -47,7 +47,7 @@ class Method {
     foreach($keys as $key)
       if($this->has($key))
         $this->data[$key] = $make($this->get($key), $key);
-    return self;
+    return $this;
   }
 
   public function get(string|int $key): mixed {
