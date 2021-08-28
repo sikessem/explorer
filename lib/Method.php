@@ -53,7 +53,7 @@ class Method {
     return $this->data[$key] ?? null;
   }
 
-  public static function satinize(string $verb): string {
+  public static function sanitize(string $verb): string {
     return strtoupper(trim($verb));
   }
 }
