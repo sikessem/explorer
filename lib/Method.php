@@ -42,10 +42,11 @@ class Method {
     return true;
   }
 
-  public function forAny(array $keys, callable $make): self {
+  public function forAny(callable $make, array $keys = []): self {
+    if(empty($keys)) $keys = array_keys($this->data);
     foreach($keys as $key)
       if($this->has($key))
-        $this->data[$key] = $make($this->get($key));
+        $this->data[$key] = $make($this->get($key), $key);
     return self;
   }
 
