@@ -1,6 +1,6 @@
 <?php namespace SIKessEm\Protocom;
 
-class Getter {
+trait Getter {
 
 	public function __isset(string $name): bool {
 		return isset($this->$name);
