@@ -19,9 +19,7 @@
         "issues": "https://github.com/SIKessEm/Protocom/issues"
     },
     "require": {
-        "php": ">=8.0",
-        "sikessem/organizer": "dev-main",
-        "sikessem/events": "dev-main"
+        "php": ">=8.0"
     },
     "autoload": {
         "psr-4": {
