@@ -33,7 +33,7 @@ class Headers {
   }
 
   public function get(string $name): ?string {
-    return $this->list[$name] ?? null;
+    return $this->list[self::format($name)] ?? null;
   }
 
   public function reset(): this {
