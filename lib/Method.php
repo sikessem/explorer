@@ -5,20 +5,55 @@ class Method {
   use Getter;
   
   public function __construct(string $verb, array $data) {
-    $this->setVerb($verb)->setData($data);
+    $this->verb = self::sanitize($verb);
+    $this->data = $data;
   }
 
   protected array $data = [];
 
   protected string $verb;
-
-  public function setVerb(string $verb): self {
-    $this->verb = strtoupper($verb);
-    return $this;
+  
+  public function is(string $verb): bool {
+    return $this->verb === self::sanitize($verb);
   }
 
-  public function setData(array $data): self {
-    $this->data = $data;
-    return $this;
+  public function in(array $verbs): bool {
+    foreach($verbs as $verb)
+      if($this->is($verb))
+        return true;
+    return false;
+  }
+
+  public function has(string|int $key): bool {
+    return isset($this->data[$key]);
+  }
+
+  public function hasOneOf(array $keys): bool {
+    foreach($keys as $key)
+      if($this->has($key))
+        return true;
+    return false;
+  }
+
+  public function hasAll(array $keys): bool {
+    foreach($keys as $key)
+      if(!$this->has($key))
+        return false;
+    return true;
+  }
+
+  public function forAny(array $keys, callable $make): self {
+    foreach($keys as $key)
+      if($this->has($key))
+        $this->data[$key] = $make($this->get($key));
+    return self;
+  }
+
+  public function get(string|int $key): mixed {
+    return $this->data[$key] ?? null;
+  }
+
+  public static function satinize(string $verb): string {
+    return strtoupper(trim($verb));
   }
 }
