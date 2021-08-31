@@ -4,5 +4,5 @@ abstract class Entity {
 
 	use Getter;
 
-	public function __construct(protected string $host, protected int $port) {}
+	function __construct(protected Authority $authority) {}
 }
